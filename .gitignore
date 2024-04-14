@@ -1,0 +1,13 @@
+debug/
+target/
+dist/
+Cargo.lock
+**/*.rs.bk
+*.pdb
+.vscode/
+*.zst
+-*
+pkg/
+imported_assets
+node_modules
+.idea

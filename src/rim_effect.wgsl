@@ -19,6 +19,9 @@ var<uniform> is_time_related : u32;
 fn rim_effect( pbr_input : PbrInput ) -> f32
 {
   var power : f32 = width; 
+  if 0 < is_time_related{
+    power =  sin(u_time) * 6 * ( 1 / width);
+  }
   var N : vec3f = pbr_input.N;
   let V : vec3f = pbr_input.V;
   var fresnel =  1.0 - max( dot( N, V ), 0.0001 );

@@ -1,15 +1,25 @@
 [package]
-name = "outline_research"
+name = "outlines"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[profile.dev]
+opt-level = 1
+
+# Enable high optimizations for dependencies (incl. Bevy), but not for our code:
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+lto = true
+
 [dependencies]
 bevy = { version = "0.13.0", features=[ "jpeg" ] }
-bevy_rapier3d = "0.23"
 defaults = "0.2.0"
 
-#[dev-dependencies]
-#bevy = { version = "0.13.0", features=[ "jpeg" ] }
-#defaults = "0.2.0"
+[dev-dependencies]
+bevy = { version = "0.13.0", features=[ "jpeg" ] }
+bevy_atmosphere = "0.9.0"
+defaults = "0.2.0"

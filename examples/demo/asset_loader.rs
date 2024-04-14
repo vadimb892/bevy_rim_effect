@@ -1,10 +1,9 @@
-use bevy::{asset::LoadState, prelude::*, render::{render_resource::{TextureViewDescriptor, TextureViewDimension}, texture::{ImageAddressMode, ImageFilterMode, ImageLoaderSettings, ImageSampler, ImageSamplerDescriptor}}};
+use bevy::{prelude::*, render::texture::{ImageAddressMode, ImageFilterMode, ImageLoaderSettings, ImageSampler, ImageSamplerDescriptor}};
 
 
 #[ derive( Resource, Debug, Default ) ]
 pub struct TextureAssets 
 {
-  pub skybox : Handle< Image >,
   pub prototype : TextureSet,
   pub ceramic : TextureSet,
 }
@@ -12,7 +11,6 @@ pub struct TextureAssets
 #[ derive( Resource, Debug, Default ) ]
 pub struct MeshAssets
 {
-  pub cube_chest : Option< Handle< Mesh > >,
   pub pyramida : Option< Handle< Mesh > >
 }
 
@@ -24,7 +22,7 @@ impl Plugin for AssetLoaderPlugin
   {
     app.init_resource::< TextureAssets >( )
     .init_resource::< MeshAssets >( )
-    .add_systems( Startup, ( load_assets, skybox_reinterpret ).chain( ).in_set( AssetsInitSet ) );
+    .add_systems( Startup, load_assets.in_set( AssetsInitSet ) );
   }
 }
 
@@ -51,7 +49,6 @@ fn load_assets(
 
   *texture_assets = TextureAssets
   {
-    skybox : asset_server.load( "textures\\skybox\\skybox.png" ),
     prototype: TextureSet
     {
       base : Some( asset_server.load_with_settings( "textures\\texture_02.png", settings ) ),
@@ -70,30 +67,8 @@ fn load_assets(
 
   *mesh_assets = MeshAssets
   {
-    cube_chest : Some( asset_server.load( "scenes\\cube_chest.glb#Mesh0/Primitive0" ) ),
     pyramida : Some( asset_server.load( "scenes\\pyramida.glb#Mesh0/Primitive0" ) )
   };
-}
-
-fn skybox_reinterpret( 
-  mut images: ResMut< Assets< Image > >,
-  texture_assets: ResMut< TextureAssets >, 
-  asset_server: Res< AssetServer > 
-)
-{
-  if asset_server.load_state(&texture_assets.skybox ) == LoadState::Loaded 
-  {
-    info!( "{:?}", asset_server.load_state(&texture_assets.skybox ) );
-    let image = images.get_mut( &texture_assets.skybox ).unwrap( );
-    if image.texture_descriptor.array_layer_count( ) == 1 {
-      info!( "{}", image.texture_descriptor.array_layer_count( ) );
-      image.reinterpret_stacked_2d_as_array( image.height( ) / image.width( ) );
-      image.texture_view_descriptor = Some( TextureViewDescriptor {
-          dimension: Some( TextureViewDimension::Cube ),
-          ..default( )
-      } );
-    }
-  }
 }
 
 #[ derive( Debug, Default ) ]

@@ -1,6 +1,6 @@
 use std::f32::consts::PI;
 use bevy::{
-  pbr::{light_consts, CascadeShadowConfigBuilder, ScreenSpaceAmbientOcclusionBundle}, prelude::*
+  pbr::ScreenSpaceAmbientOcclusionBundle, prelude::*
 };
 
 pub struct LightPlugin;
@@ -19,7 +19,7 @@ fn setup( mut commands : Commands )
   commands.spawn(DirectionalLightBundle 
     {
       directional_light : DirectionalLight {
-        illuminance : light_consts::lux::AMBIENT_DAYLIGHT + 5000.0,
+        illuminance : 15000.0,
         shadows_enabled : true,
         ..default( )
       },
