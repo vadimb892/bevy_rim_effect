@@ -20,7 +20,7 @@ fn rim_effect( pbr_input : PbrInput ) -> f32
 {
   var power : f32 = width; 
   if 0 < is_time_related{
-    power =  sin(u_time) * 0.4 + width;
+    power =  sin(u_time) * 0.6 + width;
   }
   var N : vec3f = pbr_input.N;
   let V : vec3f = pbr_input.V;
