@@ -1,0 +1,10 @@
+C:\Users\vadim\Desktop\5_course\Job\rust\capstone\target\debug\deps\libbevy_window-740f62445e1d4d9c.rmeta: C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_window-0.13.2\src\lib.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_window-0.13.2\src\cursor.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_window-0.13.2\src\event.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_window-0.13.2\src\raw_handle.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_window-0.13.2\src\system.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_window-0.13.2\src\window.rs
+
+C:\Users\vadim\Desktop\5_course\Job\rust\capstone\target\debug\deps\bevy_window-740f62445e1d4d9c.d: C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_window-0.13.2\src\lib.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_window-0.13.2\src\cursor.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_window-0.13.2\src\event.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_window-0.13.2\src\raw_handle.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_window-0.13.2\src\system.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_window-0.13.2\src\window.rs
+
+C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_window-0.13.2\src\lib.rs:
+C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_window-0.13.2\src\cursor.rs:
+C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_window-0.13.2\src\event.rs:
+C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_window-0.13.2\src\raw_handle.rs:
+C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_window-0.13.2\src\system.rs:
+C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_window-0.13.2\src\window.rs:

@@ -1,0 +1,10 @@
+C:\Users\vadim\Desktop\5_course\Job\rust\capstone\target\debug\deps\libbevy_winit-0fce7ef80802f3e6.rmeta: C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_winit-0.13.2\src\lib.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_winit-0.13.2\src\accessibility.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_winit-0.13.2\src\converters.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_winit-0.13.2\src\system.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_winit-0.13.2\src\winit_config.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_winit-0.13.2\src\winit_windows.rs
+
+C:\Users\vadim\Desktop\5_course\Job\rust\capstone\target\debug\deps\bevy_winit-0fce7ef80802f3e6.d: C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_winit-0.13.2\src\lib.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_winit-0.13.2\src\accessibility.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_winit-0.13.2\src\converters.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_winit-0.13.2\src\system.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_winit-0.13.2\src\winit_config.rs C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_winit-0.13.2\src\winit_windows.rs
+
+C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_winit-0.13.2\src\lib.rs:
+C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_winit-0.13.2\src\accessibility.rs:
+C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_winit-0.13.2\src\converters.rs:
+C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_winit-0.13.2\src\system.rs:
+C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_winit-0.13.2\src\winit_config.rs:
+C:\Users\vadim\.cargo\registry\src\index.crates.io-6f17d22bba15001f\bevy_winit-0.13.2\src\winit_windows.rs:
