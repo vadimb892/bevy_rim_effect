@@ -61,9 +61,13 @@ where Outline< O > : MaterialExtension{
             for handle in query.iter(){
                 if let Some(material) = materials.get_mut(handle){
                     if event.y > 0.0 {
-                        material.extension.width *= 1.25;
+                        if material.extension.width < 10000.0{
+                            material.extension.width *= 1.25;
+                        }
                     }else {
-                        material.extension.width /= 1.25;
+                        if material.extension.width > 0.1{ 
+                            material.extension.width /= 1.25;
+                        }
                     }
                     info!( "{}", material.extension.width );
                 }
