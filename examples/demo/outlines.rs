@@ -6,6 +6,7 @@ use bevy::ecs::schedule::SystemSet;
 use outlines::outline::{Outline, OutlineLabel};
 use outlines::rim_effect::RimEffect;
 
+/// Adds outlines support and systems for updating outlines behaviour
 pub struct OutlinesPlugin;
 
 impl Plugin for OutlinesPlugin 
@@ -16,9 +17,11 @@ impl Plugin for OutlinesPlugin
     }
 }
 
+/// Used for ordering outline initialization systems
 #[ derive( SystemSet, Debug, Hash, PartialEq, Eq, Clone ) ]
 pub struct OutlineInitSet;
 
+/// Incapsulates all systems scheduling, plugins, types registering for O outline
 fn add_outline< O : OutlineLabel >( app : &mut App )
 where 
     Outline< O > : MaterialExtension,
@@ -38,7 +41,7 @@ where
         ));
 }
 
-
+/// Updates time for every O outline material 
 fn update_material_time< O : OutlineLabel >(
     time : Res< Time >,
     mut materials : ResMut< Assets< ExtendedMaterial< StandardMaterial, Outline< O > > > >,
@@ -49,6 +52,7 @@ where Outline< O > : MaterialExtension{
     }
 }
 
+/// For rim_effect outline width is power of Fresnel saturation 
 fn change_outline_width< O : OutlineLabel >(
     keyboard_input : Res< ButtonInput< KeyCode > >, 
     mut mouse_wheel_events: EventReader< MouseWheel >,
@@ -69,7 +73,7 @@ where Outline< O > : MaterialExtension{
                             material.extension.width /= 1.25;
                         }
                     }
-                    info!( "{}", material.extension.width );
+                    info!( "Width(power): {}", material.extension.width );
                 }
             }
         }
@@ -77,6 +81,7 @@ where Outline< O > : MaterialExtension{
     }
 }
 
+/// Switch width change state: (const width)/(time depended)
 fn set_mode< O : OutlineLabel >(   
     keyboard_input : Res< ButtonInput< KeyCode > >,
     mut materials : ResMut< Assets< ExtendedMaterial< StandardMaterial, Outline< O > > > >,
@@ -94,6 +99,7 @@ where Outline< O > : MaterialExtension
     }
 }
 
+/// Set outline animation speed
 pub fn change_time_scale< O : OutlineLabel >(
     keyboard_input : Res< ButtonInput< KeyCode > >, 
     mut mouse_wheel_events: EventReader< MouseWheel >,
@@ -114,7 +120,7 @@ where Outline< O > : MaterialExtension
                     else {
                         material.extension.time_scale /= 1.25;
                     }
-                    info!( "{}", material.extension.time_scale );
+                    info!( "Time scale: {}", material.extension.time_scale );
                 }
             }
         }

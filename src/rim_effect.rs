@@ -14,6 +14,7 @@ impl OutlineLabel for RimEffect {
     fn shader_handle() -> Handle::<Shader>{
         SHADER_HANDLE
     }
+
     fn load_shader(app : &mut App){
         load_internal_asset!(app, Self::shader_handle(), "rim_effect.wgsl", Shader::from_wgsl);
     }
