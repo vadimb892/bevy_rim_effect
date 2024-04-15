@@ -1,6 +1,6 @@
 # Rim effect outline
 
-Capstone project that recreates rim effect outline. This project is experiment with [Bevy](https://bevyengine.org/) rust engine for learning purpose. Can be used as lib for adding rim effect outline material extension.
+Capstone project that recreates [rim effect](https://ameye.dev/notes/rendering-outlines/) outline. This project is experiment with [Bevy](https://bevyengine.org/) rust engine for learning purpose. Can be used as lib for adding rim effect outline material extension.
 
 Run demo example where you can change:
 - width(power) - press W + mouse scroll;
