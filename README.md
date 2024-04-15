@@ -9,6 +9,18 @@ Run demo example where you can change:
 
 ![Demo](/images/demo.png)
 
+### Build demo
+
+```
+make demo
+```
+
+or
+
+```
+cargo run --example demo
+```
+
 ### How use rim effect outline in own project?
 
 [Demo](/examples/demo) example describe how can be integrated rim effect outline in own project.
@@ -101,16 +113,4 @@ Base tips to add rim effect outline:
             ));
         }
     }
-```
-
-### Build demo
-
-```
-make demo
-```
-
-or
-
-```
-cargo run --example demo
 ```
