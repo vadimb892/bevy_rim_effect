@@ -13,13 +13,13 @@ impl Plugin for UiHelpPlugin {
 /// Debug, demo UI init
 fn build_diagnostics_ui(mut commands: Commands) {
     let text_header_style = TextStyle {
-        font_size: 16.0,
+        font_size: 20.0,
         color: Color::WHITE,
         ..default()
     };
 
     let text_help_style = TextStyle {
-        font_size: 11.0,
+        font_size: 14.0,
         color: Color::rgb(0.85, 0.85, 0.85),
         ..default()
     };
@@ -38,8 +38,8 @@ fn build_diagnostics_ui(mut commands: Commands) {
             parent
                 .spawn(NodeBundle {
                     style: Style {
-                        width: Val::Px(200.),
-                        height: Val::Px(100.),
+                        width: Val::Px(310.),
+                        height: Val::Px(80.),
                         border: UiRect::all(Val::Px(1.0)),
                         margin: UiRect::all(Val::Px(5.0)),
                         display: Display::Flex,
@@ -63,7 +63,7 @@ fn build_diagnostics_ui(mut commands: Commands) {
                     parent
                         .spawn((
                             TextBundle::from_section(
-                                "Width: W + scroll",
+                                "Width                       : W + scroll",
                                 text_help_style.clone(),
                             )
                             .with_style(Style {
@@ -89,7 +89,7 @@ fn build_diagnostics_ui(mut commands: Commands) {
                     parent
                         .spawn((
                             TextBundle::from_section(
-                                "Flickering speed: T + scroll",
+                                "Flickering speed            : T + scroll",
                                 text_help_style.clone(),
                             )
                             .with_style(Style {

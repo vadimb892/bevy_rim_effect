@@ -9,13 +9,17 @@
   }
 }
 
+// Value that helps change animation and synchonize it with other entities outline material
 @group(2) @binding(100)
 var<uniform> u_time : f32;
+// Outline width (power of Fresnel saturation for rim effect)
 @group(2) @binding(101)
 var<uniform> width : f32;
+// Set width change state: (const width)/(time depended)
 @group(2) @binding(102)
 var<uniform> is_time_related : u32;
 
+// Use normal, view vector for rim effect outline level calculation
 fn rim_effect( pbr_input : PbrInput ) -> f32
 {
   var power : f32 = width; 
@@ -29,6 +33,8 @@ fn rim_effect( pbr_input : PbrInput ) -> f32
   return fresnel;
 }
 
+// Material extension fragment shader from: https://github.com/bevyengine/bevy/blob/main/assets/shaders/extended_material.wgsl
+// But there also added `rim_effect` call that mixed with `out.color` 
 @fragment
 fn fragment( 
   in: VertexOutput,

@@ -8,25 +8,32 @@ use bevy_atmosphere::plugin::AtmosphereCamera;
 use defaults::Defaults;
 use std::f32::consts::PI;
 
+/// [`Camera`] distance from view center
 const CAMERA_DISTANCE: f32 = 20.0;
+/// [`Camera`] focus coords
 const FOCUS: Vec3 = Vec3::new(0.0, 2.0, 0.0);
+/// [`Camera`] rotation speed
 const CAMERA_ROTATION_SPEED: f32 = 15.0;
 
+/// Label [`Camera`] as main
 #[derive(Component, Debug)]
 pub struct MainCamera;
+
+/// Adds [`Camera`] movement behavior
 pub struct CameraPlugin;
 
 impl Plugin for CameraPlugin {
     fn build(&self, app: &mut App) {
-        app.add_event::<CameraMovement>()
-            .add_systems(Startup, spawn_camera.in_set(CameraInitSet))
+        app.add_systems(Startup, spawn_camera.in_set(CameraInitSet))
             .add_systems(Update, camera_movement);
     }
 }
 
+/// Used for ordering camera behavior systems
 #[derive(SystemSet, Debug, Hash, PartialEq, Eq, Clone)]
 pub struct CameraInitSet;
 
+/// Bind [`AtmosphereCamera`], [`UpHemisphereTransform`] to [`Camera`] entity and spawn it 
 fn spawn_camera(
     mut commands: Commands,
 ) {
@@ -49,19 +56,25 @@ fn spawn_camera(
     ));
 }
 
+/// Contain [`Camera`] angles, radius, focus
 #[derive(Component, Defaults)]
 struct UpHemisphereTransform {
+    /// [`Camera`] yaw angle 
     #[def = "45.0"]
     yaw: f32,
+    /// [`Camera`] pitch angle
     #[def = "45.0"]
     pitch: f32,
+    /// [`Camera`] distance from view center
     #[def = "CAMERA_DISTANCE"]
     radius: f32,
+    /// [`Camera`] focus coords
     #[def = "FOCUS"]
     focus: Vec3,
 }
 
 impl UpHemisphereTransform {
+    /// Updates [`UpHemisphereTransform`]
     fn add(&mut self, r: f32, yaw: f32, pitch: f32) -> Vec3 {
         self.radius *= r;
         self.yaw += yaw;
@@ -83,17 +96,20 @@ impl UpHemisphereTransform {
         self.get()
     }
 
+    /// Returns [`Camera`] transition
     fn get(&self) -> Vec3 {
         let t = sphere_to_decart(Vec3::new(self.radius, self.pitch, self.yaw));
         self.focus + t
     }
 
+    /// Changes [`Camera`] focus
     fn _set_focus(&mut self, focus: Vec3) -> Vec3 {
         self.focus = focus;
         self.get()
     }
 }
 
+/// (r, theta, phi) -> (x, y, z)
 fn sphere_to_decart(sphere_coords: Vec3) -> Vec3 {
     let Vec3 {
         x: r,
@@ -109,9 +125,7 @@ fn sphere_to_decart(sphere_coords: Vec3) -> Vec3 {
     )
 }
 
-#[derive(Event)]
-pub struct CameraMovement(pub Vec3);
-
+/// Updates [`Camera`] [`UpHemisphereTransform`] from [`MouseWheel`], [`MouseMotion`]
 fn camera_movement(
     mut query: Query<(&mut Transform, &mut UpHemisphereTransform), With<MainCamera>>,
     keyboard_input: Res<ButtonInput<KeyCode>>,

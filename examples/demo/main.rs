@@ -1,8 +1,14 @@
+/// 
 mod asset_loader;
+/// 
 mod camera;
+/// 
 mod light;
+/// 
 mod outlines;
+/// 
 mod world;
+/// 
 mod ui_help;
 
 use bevy::prelude::*;
@@ -18,6 +24,7 @@ use ui_help::UiHelpPlugin;
 
 fn main() {
     App::new()
+        .insert_resource( Msaa::Sample4 )
         .add_plugins((
             DefaultPlugins,
             AtmospherePlugin

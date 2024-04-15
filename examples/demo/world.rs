@@ -4,6 +4,7 @@ use crate::asset_loader::{MeshAssets, TextureAssets};
 use bevy::{pbr::ExtendedMaterial, prelude::*, render::mesh::VertexAttributeValues};
 use outlines::{outline::Outline, rim_effect::RimEffect};
 
+/// Setup entities for [`App`]
 pub struct WorldPlugin;
 
 impl Plugin for WorldPlugin {
@@ -19,18 +20,22 @@ impl Plugin for WorldPlugin {
     }
 }
 
+/// Used for ordering shape spawn systems
 #[derive(SystemSet, Debug, Hash, PartialEq, Eq, Clone)]
 pub struct SpawnInitSet;
 
+/// One shape settings that used in entity spawn
 #[derive(Component, Clone, Debug)]
 pub struct Shape{
     pub transform: Transform, 
     pub shape: Handle< Mesh >,
 }
 
+/// Colection of [`Shapes`] that must be spawn in [`Startup`]
 #[derive(Clone, Debug, Default, Resource)]
 pub struct Shapes(pub Vec<Shape>);
 
+/// Setup [`Shapes`]
 fn init_shapes_settings(
     mut commands: Commands,
     mut meshes : ResMut< Assets< Mesh > >,
@@ -79,7 +84,7 @@ fn init_shapes_settings(
         //Cuboid
         Shape {
             transform: Transform {
-                translation: Vec3::new(0.0, 3.0, 0.0),
+                translation: Vec3::new(0.0, 2.0, 0.0),
                 rotation: q.clone(),
                 scale: Vec3::new(3.0, 5.0, 3.0),
             },
@@ -114,6 +119,7 @@ fn init_shapes_settings(
     ])));
 }
 
+/// Changes [`Transform`] of some [`Shape`]s so that they stand in a circle
 fn map_shapes_transform(
     mut shapes: ResMut<Shapes>
 ){
@@ -128,6 +134,7 @@ fn map_shapes_transform(
     }
 }
 
+/// Spawn all [`Shape`] from [`Shapes`] resource list
 fn spawn_shapes(
     mut commands: Commands,
     texture_assets: Res< TextureAssets >,
@@ -163,6 +170,7 @@ fn spawn_shapes(
     }
 }
 
+/// Spawn ground plane in [`Startup`]
 fn spawn_plane(
     mut commands: Commands,
     mut meshes: ResMut<Assets<Mesh>>,
