@@ -8,7 +8,7 @@ Run demo example where you can change:
 - (const width)/(time dependency width) - press R (don`t hold button, otherwise state will change with high frequency).
 
 ![Demo](/images/demo.png)
-
+ 
 ### Build demo
 
 ```
@@ -114,3 +114,5 @@ Base tips to add rim effect outline:
         }
     }
 ```
+
+
